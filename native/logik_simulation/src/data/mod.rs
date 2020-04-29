@@ -139,14 +139,14 @@ mod test {
         
         data.add_subnet(0);
         
-        assert!(data.add_component(Box::new(Output {}), vec![0], vec![]));
+        assert!(data.add_component(Box::new(Output {utdata_varde: 1.0}), vec![0], vec![]));
         
         data.add_subnet(1);
         data.add_subnet(5);
         
         assert!(data.add_component(Box::new(AND {}), vec![1, 5], vec![0]));
         
-        assert!(data.add_component(Box::new(Output {}), vec![0], vec![]));
+        assert!(data.add_component(Box::new(Output {utdata_varde: 1.0}), vec![0], vec![]));
         
         assert_eq!(data.edges, map!(2 => set!(3), 10 => set!(3), 3 => set!(0), 0 => set!(1, 5)));
     }
@@ -160,7 +160,7 @@ mod test {
         
         assert_eq!(data.edges, map!());
         
-        assert!(data.add_component(Box::new(Output {}), vec![0], vec![]));
+        assert!(data.add_component(Box::new(Output {utdata_varde: 1.0}), vec![0], vec![]));
         
         assert_eq!(data.edges, map!(0 => set!(1)));
         
